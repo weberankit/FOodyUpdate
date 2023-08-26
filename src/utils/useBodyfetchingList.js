@@ -28,7 +28,7 @@ async function getMenuCardData() {
      console.log(data)
     
     const json = await data.json();
-   
+   console.log(json)
     
     setList(
       json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants

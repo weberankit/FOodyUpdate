@@ -42,26 +42,27 @@ const Applayout = () => {
 
 
   //calling default value usecontext
-  const { user } = useContext(HeaderContext);
+ /// const { user } = useContext(HeaderContext);
   //search
   const {icon} = useContext(displaySearchField)
   //setting default value and setShopNmae for updating
-  const [users, setShopName] = useState({ name: user.name });
+  //const [users, setShopName] = useState({ name: user.name });
   //for user login we can set value by using setSopname
 
   //for aearch
  // console.log(icon.display)
   const [ico, setIco] = useState({ icons: icon.display });
  // console.log(ico)
-
+  //  <HeaderContext.Provider value={{ user: users, setShopName }}>
+   //  </HeaderContext.Provider>
   return (
     <Provider store={myAppStore}>
-      <HeaderContext.Provider value={{ user: users, setShopName }}>
+  
       <displaySearchField.Provider value={{ icon:ico , setIco}}> 
         <Header />
         <Outlet />
         </displaySearchField.Provider>
-      </HeaderContext.Provider>
+   
     </Provider>
   );
 };

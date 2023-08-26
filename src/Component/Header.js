@@ -3,10 +3,10 @@ import Status from "../utils/useOnlineStatus";
 import { HeaderContext ,displaySearchField} from "../utils/UserContext";
 import { useContext , useState } from "react";
 import { useSelector } from "react-redux";
-
+import userLocation from "../utils/userLocation";
 const Header = () => {
   const online = Status();
-  const { user, setShopName } = useContext(HeaderContext);
+ // const { user, setShopName } = useContext(HeaderContext);
   const {icon,setIco} = useContext(displaySearchField);
  // console.log(icon)
   const cartItemNo = useSelector((store) => store.cart.item);
@@ -16,10 +16,10 @@ const Header = () => {
    
 const [display , setDisplay] = useState(false)
 
-
+const [userInfolocation ,setUserInfolocation] = useState()
  
-
-
+ userLocation(setUserInfolocation)
+  console.log(userInfolocation)
   return (
     <>
       
@@ -30,22 +30,32 @@ const [display , setDisplay] = useState(false)
        
 
    <div className={` ${display === false ? "hidden" : "block"}  navbar p-4  md:flex md:justify-between `}>
-        <div className="nav-logo p-2">
+        <div className="nav-logo  flex">
 
        
+         
+            <div className="  flex items-center text-4xl font-extrabold text-red-500 drop-shadow-md shadow-red-500/50"
+             // value={user.name}
+              //onChange={(e) => {
+               // setShopName({
+               //   name: e.target.value,
+              //  });
+             // }}
+            
+            >
+              
+              <div className="text-2xl px-1 text-black">
+                <i className="fa-solid fa-utensils"></i>
+                </div>
+               <div> MyKhana</div> 
+              <div className="p-1 mt-4 text-green-300 text-sm">
+                {online == true ? <i className="fa-solid fa-circle"></i> : "offline"}
+              </div>
+             </div>
 
-            <input className="text-red-500 "
-              value={user.name}
-              onChange={(e) => {
-                setShopName({
-                  name: e.target.value,
-                });
-              }}
-            ></input>
-              <span>{online == true ? <i className="fa-solid fa-circle"></i> : "offline"}</span>
           </div>
-          
-        
+          <div> {userInfolocation !== undefined ? <div>{userInfolocation.location.name +" "+  userInfolocation.location.region}</div>:"location denied" }</div>
+       
           
 
         <div className="nav-links md:flex">
