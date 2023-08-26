@@ -1,0 +1,6 @@
+.vercel
+.parcel-cache
+node_modules
+dist
+build
+.postcssrc
