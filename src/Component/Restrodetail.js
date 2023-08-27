@@ -4,7 +4,7 @@ import {  useState } from "react";
 import { img_cdn_link } from "./constant";
 import useRestrodeatilFetching from "../utils/useRestodeatilFetching";
 import CategoryItemDisplay from "./CategoryItemDisplay";
-import { useState } from "react";
+
 import { RestroDetailshimmerEffect } from "./ShimmerEffect";
 const Restrodetail = () => {
   const { id } = useParams();

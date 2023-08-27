@@ -49,6 +49,23 @@ const[filterList,setfilterList]=useState("")
  
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if (!list) return <RestroShimmer/>
 
   return (
@@ -62,13 +79,13 @@ if (!list) return <RestroShimmer/>
 
 
       <div className="flex flex-wrap justify-evenly">
-        {filterList.length === 0 ? <h1>nothing found</h1> : ""}
+        {filterList.length === 0 ? <h1 className="text-center text-2xl">nothing found</h1> : ""}
         {filterList.map((item) => {
           console.log(item)
           return (
             <Link key={item?.info?.id} to={"/restrodetail/" + item?.info?.id}>
-              {item?.info?.promoted ? (
-                <PromotedList {...item.info} />
+              {item?.info?.isOpen == true ? (
+                <PromotedList {...item.info }  />
               ) : (
                 <Restro {...item.info} />
               )}

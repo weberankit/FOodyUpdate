@@ -6,7 +6,7 @@ const Search=(setInputValue ,inputValue,filterOutRestroList,list,setfilterList)=
       className=" p-3.5 md:w-full">
      
     <input 
-    className=" w-10/12  outline-0 m-0.5 py-1 bg-red-200 md:w-11/12"
+    className=" w-10/12  outline-0 m-0.5 py-1 border border-slate-700 md:w-11/12"
          value={inputValue}
          onChange={(e) => {
            setInputValue(e.target.value);

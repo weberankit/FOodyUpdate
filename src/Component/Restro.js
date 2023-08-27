@@ -12,7 +12,8 @@ const Restro=({name,area,avgRating,costForTwo,id,cuisines,cloudinaryImageId})=>{
     return(
     <>
     
- <div key={id} className="foodItem-container  px-2  py-5 hover:shadow-2xl  ">
+ <div key={id} 
+ className="foodItem-container relative  px-2  py-5 shadow-2xl hover:shadow-inner hover:outline-1 hover:outline-orange-300  hover:outline-dotted  ">
   <div className="">
    <div className="restro-image">
     <img className="w-72 h-52 rounded-md" src={img_cdn_link+cloudinaryImageId}></img>
@@ -28,11 +29,11 @@ const Restro=({name,area,avgRating,costForTwo,id,cuisines,cloudinaryImageId})=>{
 
 
         <div className="flex justify-between text-sm">
-           <h5>{avgRating}</h5>
+           <h5 className="p-1 bg-red-400 rounded-sm">{avgRating}<span className='text-white' > <i className="fa-solid fa-star"></i> </span></h5>
 
            
             {
-            typeof costForTwo === "string"?<h5>RS{costForTwo.slice(0,4)}</h5>:<h5>{costForTwo/100}</h5>
+            typeof costForTwo === "string"?<h5 className="text-gray-500">RS{costForTwo.slice(0,4)}</h5>:<h5 className="text-gray-500">{costForTwo/100}</h5>
            }
         </div>
         <div>
@@ -61,10 +62,13 @@ const Restro=({name,area,avgRating,costForTwo,id,cuisines,cloudinaryImageId})=>{
 
 
 export const promotedRestro=(Restro)=>{
+   console.log(Restro)
    return(props)=>{
+   //   {console.log(props  )}
       return(
+         
 <>
-<label>promoted</label>
+<label ></label>
          <Restro {...props}/>
 </>
       )

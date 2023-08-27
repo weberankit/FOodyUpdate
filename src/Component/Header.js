@@ -1,6 +1,6 @@
 import { Link ,useLocation } from "react-router-dom";
 import Status from "../utils/useOnlineStatus";
-import { HeaderContext ,displaySearchField} from "../utils/UserContext";
+import {displaySearchField} from "../utils/UserContext";
 import { useContext , useState } from "react";
 import { useSelector } from "react-redux";
 import userLocation from "../utils/userLocation";
@@ -24,7 +24,7 @@ const [userInfolocation ,setUserInfolocation] = useState()
     <>
       
   
-  <div >
+  <div className="border-b-2 border-slate-400" >
        
    <div className=" md:hidden p-3" onClick={()=>{setDisplay(!display)}}>   <i className="fa-solid fa-bars"></i></div>
        
@@ -53,15 +53,15 @@ const [userInfolocation ,setUserInfolocation] = useState()
               </div>
              </div>
 
-          </div>
-          <div> {userInfolocation !== undefined ? <div>{userInfolocation.location.name +" "+  userInfolocation.location.region}</div>:"location denied" }</div>
+          </div >
+          <div className="flex font-bold items-center" > {userInfolocation !== undefined ? <div>{userInfolocation.location.name}  <span className="text-slate-400"> {userInfolocation.location.region}</span></div>:"location denied" }</div>
        
           
 
-        <div className="nav-links md:flex">
-          <ul className="p-2 md:flex md:space-x-24  ">
+        <div className="nav-links md:flex font-semibold">
+          <ul className="p-2 md:flex md:space-x-20  ">
             <Link to="/">
-              <li className="hover:text-red-500">{currentLocation.pathname == "/"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>
+              <li className="hover:text-red-500 ">{currentLocation.pathname == "/"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>
             
             </Link>
            

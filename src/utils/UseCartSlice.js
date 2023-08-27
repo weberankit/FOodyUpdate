@@ -1,5 +1,5 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { useDeferredValue } from "react";
+import { createSlice } from "@reduxjs/toolkit";
+//import { useDeferredValue } from "react";
 
 //let basket = [];
 

@@ -16,7 +16,9 @@
   },
   "homepage": "https://github.com/weberankit/NamasteReactJS#readme",
   "devDependencies": {
+    "@babel/core": "^7.22.11",
     "assert": "^2.0.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
