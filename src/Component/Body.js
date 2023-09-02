@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState,useContext } from "react";
+import {  useState,useContext } from "react";
 import Restro, { promotedRestro } from "./Restro";
 import useBodyfetchingList from "../utils/useBodyfetchingList";
 import Search from "./Search";
-import { displaySearchField} from "../utils/UserContext";
+import { buttonState, displaySearchField} from "../utils/UserContext";
 import RestroShimmer from "./ShimmerEffect";
+import { storeLatvalue } from "../utils/userLocation";
+
+
 function filterOutRestroList(input, list) {
   const listOfFilterData = list.filter((item) => {
     return item?.info?.name.toLowerCase().includes(input.toLowerCase());
@@ -18,7 +21,7 @@ const Body = () => {
   const [list, setList] = useState("");
   const [filterList, setfilterList] = useState("");
   const [inputValue, setInputValue] = useState("");
- 
+  const{geo ,setgeo} =useContext(buttonState)
   //for higherordercomponent
   //calling
   const PromotedList = promotedRestro(Restro);
@@ -44,7 +47,17 @@ const[filterList,setfilterList]=useState("")
 
  }
 */
-  useBodyfetchingList(setList, setfilterList);
+  const valueLat=storeLatvalue()
+  console.log( valueLat[0])
+//const [lativalue , setlativalue] =useState("28.7041")
+//const [longivalue , setlongivalue] =useState("77.1025")
+
+  useBodyfetchingList(setList, setfilterList ,geo.latino,geo.longino);
+ 
+
+
+  
+
 /*
  
 */
@@ -59,23 +72,28 @@ const[filterList,setfilterList]=useState("")
 
 
 
-
-
-
-
-
-
-
 if (!list) return <RestroShimmer/>
+  
+ return   (
 
-  return (
+
+  
     <>
+
+
     <div className="mx-auto">
 
    { icon.ico == true? Search(setInputValue ,inputValue,filterOutRestroList,list,setfilterList):""
 }
-       
 
+<button className="p-3 ml-16 bg-orange-400 text-center hover:bg-white hover:border  " onClick={()=>{
+ // setlativalue(()=>valueLat[0])
+ // setlongivalue(()=>valueLat[1])
+setgeo({latino:valueLat[0] , longino:valueLat[1]})
+//setgeo(()=>valueLat[1])
+valueLat.length == 0 && alert("Either your location is denied or swiggy is not avail in your area")
+
+}}>Nearby</button>
 
 
       <div className="flex flex-wrap justify-evenly">
@@ -96,6 +114,9 @@ if (!list) return <RestroShimmer/>
       </div>
     </>
   );
+
+
+
 };
 
 export default Body;

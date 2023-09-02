@@ -6,10 +6,31 @@ import useRestrodeatilFetching from "../utils/useRestodeatilFetching";
 import CategoryItemDisplay from "./CategoryItemDisplay";
 
 import { RestroDetailshimmerEffect } from "./ShimmerEffect";
+ 
+import  {Blurhash} from 'react-blurhash';
+import { useEffect } from "react";
+
+
+
 const Restrodetail = () => {
   const { id } = useParams();
+
+
   const [isValue, setIsValue] = useState(0);
-  
+  const [imgloaded, setImgloaded] = useState(false);
+
+
+
+
+
+
+
+
+
+
+
+
+   
   {
     /*when not using utils as customhooks 
     const[mainItem , setMainItem]=useState("");
@@ -36,10 +57,35 @@ async function togetRestroDetail(){
   //console.log(id)
   //console.log(useRestrodeatilFetching(id))
   const mainItem = useRestrodeatilFetching(id);
+
+
+
+   
+
+
+     useEffect(() => {
+      if (mainItem) {
+        const { cloudinaryImageId } = mainItem?.cards[0]?.card?.card?.info;
+        const src = img_cdn_link + cloudinaryImageId;
+  
+        const img = new Image();
+        img.onload = () => {
+          setImgloaded(true);
+        };
+        img.src = src;
+      }
+    }, [mainItem]);
+
+
+
   if (!mainItem) {
 
     return <RestroDetailshimmerEffect/> ;
   }
+
+ 
+    
+
 
   //console.log(mainItem);
   //debugger
@@ -50,7 +96,15 @@ async function togetRestroDetail(){
     mainItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
       ?.card;
   */
-
+      const src = img_cdn_link + cloudinaryImageId;
+  /*    useEffect(()=>{
+        const img =new Image()
+        img.onload=()=>{
+          setImgloaded(true)
+        }
+        img.src=src
+        },[src])*/
+        
   //console.log(mainItem.cards)
 
   const filterFoodList =
@@ -71,7 +125,25 @@ async function togetRestroDetail(){
       
      
         <div className="flex justify-center">
-          <img src={img_cdn_link + cloudinaryImageId} className="h-96 rounded-md" ></img>
+
+{!imgloaded && (<Blurhash
+
+hash="LCCFnq$$039v~AxWENI=~B$yNHEN"
+width="100%"
+height="100%"
+resolutionX={32}
+resolutionY={32}
+punch={1}
+
+
+/>)}
+
+
+      {imgloaded &&  ( <img src={src} className="h-96 rounded-md" ></img>)
+}
+
+
+
         </div>
     <div className="flex justify-evenly">
     <h1>{name}</h1>
@@ -146,4 +218,6 @@ return(
 </>
 )*/
 };
+
+
 export default Restrodetail;

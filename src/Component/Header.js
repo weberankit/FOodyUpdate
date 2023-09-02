@@ -17,7 +17,7 @@ const Header = () => {
 const [display , setDisplay] = useState(false)
 
 const [userInfolocation ,setUserInfolocation] = useState()
- 
+
  userLocation(setUserInfolocation)
   console.log(userInfolocation)
   return (
@@ -54,20 +54,20 @@ const [userInfolocation ,setUserInfolocation] = useState()
              </div>
 
           </div >
-          <div className="flex font-bold items-center" > {userInfolocation !== undefined ? <div>{userInfolocation.location.name}  <span className="text-slate-400"> {userInfolocation.location.region}</span></div>:"location denied" }</div>
+          <div className="flex font-bold items-center" > {userInfolocation !== undefined ? <div>{userInfolocation?.location?.name}  <span className="text-slate-400"> {userInfolocation?.location?.region}</span></div>:"location denied" }</div>
        
           
 
-        <div className="nav-links md:flex font-semibold">
-          <ul className="p-2 md:flex md:space-x-20  ">
-            <Link to="/">
-              <li className="hover:text-red-500 ">{currentLocation.pathname == "/"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>
-            
-            </Link>
+       <div className="nav-links md:flex font-semibold">
+         <ul className="p-2 md:flex md:space-x-20  ">
+           <Link to="/">
+             <li className="hover:text-red-500 ">{currentLocation.pathname == "/"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>
            
-             {
-           //<Link to= "/Search">   <li className="hover:text-red-500">{currentLocation.pathname == "/Search"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>  </Link>
-             }
+           </Link>
+          
+            {
+          //<Link to= "/Search">   <li className="hover:text-red-500">{currentLocation.pathname == "/Search"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>  </Link>
+            }
          <li onClick={()=>{setIco({ico:true})}} className="cursor-pointer  md:border-b-2"  >
           search
           

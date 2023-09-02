@@ -1,6 +1,6 @@
 import  { useEffect } from "react";
-
-const UserLocation = (setLocationdata) => {
+const obj=[]
+const UserLocation = (setLocationdata ) => {
  //const [userLocationdata, setLocationdata] = useState({});
 
   useEffect(() => {
@@ -13,7 +13,12 @@ const UserLocation = (setLocationdata) => {
         console.log(position);
         const { latitude, longitude } = position.coords;
       //  setLocationdata({ latitude, longitude });
+        //storeLatvalue(latitude ,longitude)
         getData(latitude, longitude);
+         //  obj.push(latitude)
+          // obj.push(longitude)
+                 obj[0]=`${latitude}`
+                 obj[1]=`${longitude}`
       },
       (error) => {
         console.log("NOT ALLOWED BY USER", error);
@@ -24,7 +29,7 @@ const UserLocation = (setLocationdata) => {
 
   async function getData(lat, long) {
     //add key 
-    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=yourkey=${lat},${long}&aqi=yes`);
+    const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=832ae691de22467692362001232608&q=${lat},${long}&aqi=yes`);
     const result = await response.json();
     console.log(result);
     setLocationdata(result)
@@ -35,5 +40,11 @@ const UserLocation = (setLocationdata) => {
 
 
 };
+
+export function storeLatvalue(){
+ 
+ return obj
+}
+
 
 export default UserLocation;

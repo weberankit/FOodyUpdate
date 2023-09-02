@@ -11,6 +11,7 @@ import { useContext } from "react";
 import { Provider } from "react-redux";
 import myAppStore from "./utils/myappStorage";
 //import Search from "./Component/Search";
+import { buttonState } from "./utils/UserContext";
 import '@fortawesome/fontawesome-free/css/all.css';
 
 
@@ -31,10 +32,10 @@ const Applayout = () => {
 
 
 
+const {values} = useContext(buttonState)
 
 
-
-
+const [geo ,setgeo] =useState({latino:values.latSate , longino:values.longState})
 
 
 
@@ -57,12 +58,14 @@ const Applayout = () => {
    //  </HeaderContext.Provider>
   return (
     <Provider store={myAppStore}>
-  
+   <buttonState.Provider value={{geo ,setgeo}}>
+        
       <displaySearchField.Provider value={{ icon:ico , setIco}}> 
-        <Header />
+     <Header />
         <Outlet />
         </displaySearchField.Provider>
-   
+      </buttonState.Provider>
+
     </Provider>
   );
 };
