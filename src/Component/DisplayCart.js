@@ -4,16 +4,11 @@ import { removeItem, increment } from "../utils/UseCartSlice";
 
 
 
-/*
- function finalPrice(dataInfo){
-       
-   const priceOftotalItem=finalPrice()
-   console.log(priceOftotalItem)
-*/
+
 const DisplayCart = ({ dataInfo }) => {
  
 
-   //finalPrice(dataInfo)
+  
 const dispatch = useDispatch();
   const incrdispatch = useDispatch();
 

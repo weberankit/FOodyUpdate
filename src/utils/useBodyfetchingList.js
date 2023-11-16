@@ -4,33 +4,6 @@ import { storeLatvalue } from "./userLocation";
 
 const useBodyfetchingList = (setList, setfilterList,lativalue,longivalue) => {
  
-/*
-  const [lativalue, setlativalue] = useState("28.7041");
-  const [longivalue, setlongivalue] = useState("77.1025");
-
-//const [lativalue , setlativalue] =useState("28.7041")
-//const [longivalue , setlongivalue] =useState("77.1025")
-//console.log(lativalue,longivalue)
-
-
-
- const valueLat=storeLatvalue()
-  console.log(valueLat,"me",valueLat.length)
-
-
-
-  useEffect(() => {
-    if (valueLat.length !== 0) {
-      setlativalue(valueLat[0]);
-      setlongivalue(valueLat[1]);
-    }
-  }, [valueLat]);
-
-  useEffect(() => {
-    getMenuCardData();
-  }, [lativalue, longivalue]);
-
-*/
 
 
 useEffect(()=>{
@@ -50,12 +23,6 @@ async function getMenuCardData() {
 
 
 
-/*//
-if(valueLat.length>0){
-  setlativalue(valueLat[0])
-  setlongivalue(valueLat[1])
-}
-*/
    
     
     const json = await data.json();
@@ -72,28 +39,17 @@ if(store.length==0){
   //alert("hey In your area swiggiy is not present this list of resaturant  is belong to nagpur")
  
 
- //data= await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1458&lng=79.0882&page_type=DESKTOP_WEB_LISTING")
-//const json=await data.json()
-///console.log(json)
-
-//setList(
-  // json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
- // );
-  //setfilterList(
-  //    json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-  
-   // );
 
 
 
 }
 
 
-
+//here in api there are lots of food array card so we are using only 1st one
 //if city has more than one buch of menucard then using any one for now only
 //note we can use both by array cloning but not now
 if(store.length>=1){
-  console.log("yes")
+  
   store=store[0]
 }
 console.log(store)

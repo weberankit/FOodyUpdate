@@ -17,5 +17,21 @@ test("button is in page ",()=>{
 const button = screen.getByText("Submit");
 expect(button).toBeInTheDocument();
 
-
 })
+test("two input boxes",()=>{
+    render(<About/>)
+
+const inputBoxes = screen.getAllByRole("textbox")
+//assertion
+expect(inputBoxes.length.toBe(2));
+})
+
+
+
+
+
+
+
+
+
+

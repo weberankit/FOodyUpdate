@@ -10,7 +10,7 @@ const CartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
-      //  state.item.push(action.payload);
+      
      // console.log(current(state), "checking");
       const cartItemIdcheck = action.payload;
      // console.log(cartItemIdcheck);
@@ -26,7 +26,7 @@ const CartSlice = createSlice({
       } else {
         search.itemNo += 1;
       }
-     // console.log(current(state), "final-checking");
+   
     },
     increment: (state, action) => {
       //console.log(action.payload, "ACTION");
@@ -37,8 +37,7 @@ const CartSlice = createSlice({
 
       const updatedItems = state.item.filter((x) => {
         if (x.items.card.info.id == ItemId) {
-         // console.log("yes");
-         // console.log(x.itemNo);
+      
           x.itemNo = x.itemNo + 1;
         }
       });
@@ -53,12 +52,7 @@ const CartSlice = createSlice({
         (x) => x.items.card.info.id !== removeItemId
       );
 
-      // const updatedItems=state.item.filter((x)=>{
-      //   if(x.items.card.info.id !== removeItemId){
-      //    return x
-      // }
-      //  })
-
+   
       state.item = updatedItems;
       //console.log(updatedItems);
     },

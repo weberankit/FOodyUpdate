@@ -1,15 +1,7 @@
 import { img_cdn_link } from "./constant";
 
 const Restro=({name,area,avgRating,costForTwo,id,cuisines,cloudinaryImageId})=>{
-   // const {name,area,avgRating,costForTwo,id,cuisines,cloudinaryImageId}=props;
-    //console.log(name,area);
-  // console.log(props)
-
-    //const lengthOFCuisines=cuisines.length
-    //console.log(lengthOFCuisines)
-    
-
-    return(
+return(
     <>
     
  <div key={id} 

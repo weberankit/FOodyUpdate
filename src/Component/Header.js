@@ -6,13 +6,13 @@ import { useSelector } from "react-redux";
 import userLocation from "../utils/userLocation";
 const Header = () => {
   const online = Status();
- // const { user, setShopName } = useContext(HeaderContext);
+
   const {icon,setIco} = useContext(displaySearchField);
- // console.log(icon)
+ console.log(icon)
   const cartItemNo = useSelector((store) => store.cart.item);
 
    const currentLocation=useLocation();
-   //console.log(currentLocation.pathname)
+
    
 const [display , setDisplay] = useState(false)
 
@@ -34,15 +34,7 @@ const [userInfolocation ,setUserInfolocation] = useState()
 
        
          
-            <div className="  flex items-center text-4xl font-extrabold text-red-500 drop-shadow-md shadow-red-500/50"
-             // value={user.name}
-              //onChange={(e) => {
-               // setShopName({
-               //   name: e.target.value,
-              //  });
-             // }}
-            
-            >
+            <div className="  flex items-center text-4xl font-extrabold text-red-500 drop-shadow-md shadow-red-500/50">
               
               <div className="text-2xl px-1 text-black">
                 <i className="fa-solid fa-utensils"></i>
@@ -66,7 +58,7 @@ const [userInfolocation ,setUserInfolocation] = useState()
            </Link>
           
             {
-          //<Link to= "/Search">   <li className="hover:text-red-500">{currentLocation.pathname == "/Search"?<h1 className="text-red-500">Home</h1>:<h1>Home</h1>}</li>  </Link>
+        
             }
          <li onClick={()=>{setIco({ico:true})}} className="cursor-pointer  md:border-b-2"  >
           search

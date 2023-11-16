@@ -12,11 +12,9 @@ const UserLocation = (setLocationdata ) => {
       (position) => {
         console.log(position);
         const { latitude, longitude } = position.coords;
-      //  setLocationdata({ latitude, longitude });
-        //storeLatvalue(latitude ,longitude)
+   
         getData(latitude, longitude);
-         //  obj.push(latitude)
-          // obj.push(longitude)
+       
                  obj[0]=`${latitude}`
                  obj[1]=`${longitude}`
       },

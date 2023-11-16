@@ -7,22 +7,19 @@ const CategoryItemDisplay = ({
   setCollaspe,
   keys,
 }) => {
-  // console.log(data)
+  
   console.log(showItemList);
 
-  /*
-  const handClick=()=>(
-       setUpdateItemList()
-  )
 
-    */
  
   return (
     <div key={keys}>  
      
        
       
-
+ {
+  //when click on anny div it will call function in restrodetail file to set that div  index
+ }
       <div  className="flex justify-evenly p-4 shadow-2xl  bg-gray-100 cursor-pointer" onClick={() => setUpdateItemList()}>
         
        <h1 className="font-bold "> {data.title}</h1>
@@ -42,7 +39,8 @@ const CategoryItemDisplay = ({
 
 
          <div>
-         
+         {//we can directly use isvalue === index && other same but not as index of map is not exist here
+         }
         {showItemList && <ItemList dataInfo={data?.itemCards} />}
        
        

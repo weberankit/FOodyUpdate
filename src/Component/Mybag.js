@@ -1,13 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
-//import { clearItem } from "../utils/UseCartSlice";
-//import ItemList from "./ItemList";
 import DisplayCart from "./DisplayCart";
 import { clearItem } from "../utils/UseCartSlice";
 
 const Mybag = () => {
   const dispatch = useDispatch();
   const cartItemInfo = useSelector((store) => store?.cart?.item);
-//  console.log(cartItemInfo?.length);
+
 
   return (
     <div>

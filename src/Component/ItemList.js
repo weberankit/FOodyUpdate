@@ -3,7 +3,7 @@ import { addItem } from "../utils/UseCartSlice";
 import { img_cdn_link } from "./constant";
 const ItemList = ({ dataInfo }) => {
   const dispatch = useDispatch();
- // console.log(dataInfo);
+
 
   return dataInfo.map((item) => {
     return (

@@ -7,7 +7,7 @@ import CategoryItemDisplay from "./CategoryItemDisplay";
 
 import { RestroDetailshimmerEffect } from "./ShimmerEffect";
  
-import  {Blurhash} from 'react-blurhash';
+
 import { useEffect } from "react";
 
 
@@ -31,38 +31,16 @@ const Restrodetail = () => {
 
 
    
-  {
-    /*when not using utils as customhooks 
-    const[mainItem , setMainItem]=useState("");
-console.log(id)
-useEffect(()=>{
-togetRestroDetail()
-},[])
-async function togetRestroDetail(){
-   try{
-   const callApi=await fetch(Menu_Api_Url+id);
-   const json=await callApi.json();
-   console.log(json)
-   setMainItem(json.data)
-   }
-   catch(error){
-   console.error("fetching issue",error)
-   }
-  return mainItem
-}
-    
-*/
-  }
 
-  //console.log(id)
-  //console.log(useRestrodeatilFetching(id))
+
+
   const mainItem = useRestrodeatilFetching(id);
 
 
 
    
 
-
+///this below is need to be delete
      useEffect(() => {
       if (mainItem) {
         const { cloudinaryImageId } = mainItem?.cards[0]?.card?.card?.info;
@@ -78,6 +56,8 @@ async function togetRestroDetail(){
 
 
 
+
+
   if (!mainItem) {
 
     return <RestroDetailshimmerEffect/> ;
@@ -87,25 +67,12 @@ async function togetRestroDetail(){
     
 
 
-  //console.log(mainItem);
-  //debugger
 
   const { name, cuisines, areaName, cloudinaryImageId } =
     mainItem?.cards[0]?.card?.card?.info;
-  /*const { itemCards } =
-    mainItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
-      ?.card;
-  */
+  
       const src = img_cdn_link + cloudinaryImageId;
-  /*    useEffect(()=>{
-        const img =new Image()
-        img.onload=()=>{
-          setImgloaded(true)
-        }
-        img.src=src
-        },[src])*/
-        
-  //console.log(mainItem.cards)
+ 
 
   const filterFoodList =
     mainItem?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
@@ -124,27 +91,6 @@ async function togetRestroDetail(){
       <div key={cloudinaryImageId} className="px-2  py-5 hover:shadow-2xl">
       
      
-        <div className="flex justify-center">
-
-{!imgloaded && (<Blurhash
-
-hash="LCCFnq$$039v~AxWENI=~B$yNHEN"
-width="100%"
-height="100%"
-resolutionX={32}
-resolutionY={32}
-punch={1}
-
-
-/>)}
-
-
-      {imgloaded &&  ( <img src={src} className="h-96 rounded-md" ></img>)
-}
-
-
-
-        </div>
     <div className="flex justify-evenly">
     <h1>{name}</h1>
     <h2>{areaName}</h2>
@@ -160,8 +106,9 @@ punch={1}
               data={item?.card?.card}
               keys={id}
 
-              showItemList={index === isValue ? true : false}
-              setUpdateItemList={() => setIsValue(index)}
+              showItemList={index === isValue ? true : false}//controliing the whole thing
+              setUpdateItemList={() => setIsValue(index)}//onclick decide showItem T or F
+              
               setCollaspe={() => setIsValue("")}
             />
           );
@@ -170,53 +117,7 @@ punch={1}
     </>
   );
 
-  //
-  /*
-return(
-<>
-<div className="main-card-detail">
-  <div>
-  <p>{name}</p>
-  <p>{cuisines}</p>
-  <p>{areaName}</p>
 
-  </div>
-  <div>
-  <img src={img_cdn_link+cloudinaryImageId}></img> 
-  </div>
-</div>
-
-<div className="food-item-deati">
-  <div>
-  {
-    itemCards.map(item=>{
-    //  console.log(item,"new")
-      const {name,price,imageId}=item?.card?.info
-       return(
-<>
-<div>
-        <p>{name}</p>
-        <p>{price}</p>
-        
-</div>
-<div>
-<p><img src={img_cdn_link+ imageId}></img></p>
-
-
-</div>
-</>
-
-        )
-         
-    })
-  }
-
-  </div>
-</div>
-
-
-</>
-)*/
 };
 
 
